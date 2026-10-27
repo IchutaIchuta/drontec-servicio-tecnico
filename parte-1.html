@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I. Generalidades y marco teórico | Drontec INF-241</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="in"><a class="t" href="index.html">Sistema Web para la Gestión de Servicio Técnico en Drontec</a><nav><a href="index.html">Portada</a><a href="parte-1.html" class="on">I. Generalidades y marco teórico</a><a href="parte-2.html">II. Análisis y diseño estructurado</a><a href="parte-3.html">III. Análisis y diseño orientado a objetos</a></nav></div></header>
+<main><article>
+<h1>I. Generalidades y marco teórico</h1>
+
+<h2>1. Introducción</h2>
+<p>Muchas empresas pequeñas y medianas siguen gestionando sus procesos operativos con registros en papel y con la memoria del personal. Esto dificulta conocer con rapidez el estado de un trabajo, el historial de un cliente o la disponibilidad de los materiales. Este trabajo presenta el análisis y diseño de un sistema web para la gestión del servicio técnico de Drontec, una empresa de La Paz, Bolivia, dedicada a los drones.</p>
+<p>El trabajo se desarrolla aplicando el paradigma del análisis estructurado y el paradigma orientado a objetos con UML. Se organiza en tres partes: generalidades y marco teórico, análisis y diseño estructurado, y análisis y diseño orientado a objetos.</p>
+
+<h2>2. Antecedentes</h2>
+<p>Drontec Bolivia (Drones y Tecnología S.R.L.) es una empresa ubicada en La Paz que distribuye productos de la marca DJI. Sus actividades incluyen la venta de drones, accesorios y repuestos, el alquiler de equipos, el servicio técnico y trabajos de ingeniería como fotogrametría, topografía e inspecciones.</p>
+<p>En el servicio técnico, la recepción de los equipos se registra en formularios físicos con una copia para la empresa y el original para el cliente. Los repuestos se guardan en cajas dentro de un mueble, sin un inventario digital. El seguimiento de cada equipo se hace sobre todo por consultas telefónicas o por WhatsApp. La descripción de este proceso proviene de la experiencia directa de un integrante del equipo que trabajó en la empresa.</p>
+
+<h2>3. Planteamiento del problema</h2>
+<p>En el servicio técnico de Drontec, el cliente lleva su equipo al taller, donde se registran sus datos y los accesorios que deja en un formulario físico con copia. El jefe de servicio técnico asigna el caso a un técnico, que diagnostica la falla. Si el servicio tiene un precio establecido, como la limpieza, se cobra directamente; si la reparación requiere repuestos o trabajos adicionales, se prepara una cotización en una hoja de cálculo que se envía al cliente para su aprobación. Luego el técnico busca los repuestos en cajas guardadas en un mueble, repara y prueba el equipo, y el cliente paga y recoge su equipo.</p>
+<p>Como la información está en papel y en la memoria del personal, se presentan las siguientes dificultades: demora para encontrar físicamente un repuesto y para saber si está disponible; retrasos cuando se descubre que un repuesto no está y debe conseguirse; un seguimiento poco directo del estado de cada equipo, que obliga a responder las consultas del cliente por teléfono o WhatsApp revisando el trabajo en el taller; y un historial de órdenes y pagos disperso en documentos físicos y archivos separados, difícil de consultar en un solo lugar.</p>
+<figure><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoZH4G6soxyIXqmmwRliYI9lcyReVHkkt0BCXmTpbsv_mAAGvOSlqTs8EH_AA9zIrRUBSRTdTqR5c7Mvnh4ke6f9SxL60Dj8Ap8Razca7MRadY3147uSPLi7Y5RlThvG2nUtiBvjp_UrEu-QyMNjDdFrAtuUknTyK0g5L4Bk5dIqME1H81GxlzQcgR-co/s1600/image.png" alt="Árbol de problemas del servicio técnico de Drontec"><figcaption>Figura 1. Árbol de problemas del servicio técnico de Drontec. Elaboración propia.</figcaption></figure>
+
+<h2>4. Formulación del problema</h2>
+<p>¿Cómo puede Drontec centralizar y organizar la gestión de su servicio técnico, desde la recepción del equipo hasta su entrega, para reducir la dispersión de la información, mejorar el seguimiento de cada equipo y controlar la disponibilidad de sus repuestos?</p>
+
+<h2>5. Propósito del estudio</h2>
+<h3>5.1 Objetivo general</h3>
+<p>Analizar y diseñar un sistema web para la gestión del servicio técnico de Drontec, desde la recepción del equipo hasta su reparación y entrega, que incluya el seguimiento de las órdenes de servicio, la asignación de técnicos, el control de repuestos y el registro interno de pagos.</p>
+<h3>5.2 Objetivos específicos</h3>
+<ol>
+<li>Describir el proceso actual de recepción, diagnóstico, cotización, reparación y entrega de equipos en el servicio técnico de Drontec.</li>
+<li>Identificar los problemas del proceso actual y establecer los requisitos funcionales y no funcionales del sistema.</li>
+<li>Elaborar el modelo del sistema aplicando el análisis y diseño estructurado: modelo ambiental, diagramas de flujo de datos y modelo de datos.</li>
+<li>Elaborar el modelo del sistema aplicando el análisis y diseño orientado a objetos con UML: casos de uso, diagrama de clases y diagramas de interacción.</li>
+<li>Diseñar el registro de clientes, equipos y órdenes de servicio, la asignación de técnicos, el inventario de repuestos con sus entradas y salidas, las cotizaciones con su aprobación, los pagos internos (efectivo o QR, con anticipos y saldos) y las consultas y reportes.</li>
+</ol>
+
+<h2>6. Método, medios e instrumentos de investigación</h2>
+<h3>6.1 Tipo de estudio</h3>
+<p>Se realiza un estudio descriptivo y aplicado. Es descriptivo porque se documenta cómo funciona hoy el servicio técnico de Drontec, y es aplicado porque con esa información se propone el análisis y diseño de un sistema para resolver los problemas identificados.</p>
+<h3>6.2 Técnicas e instrumentos</h3>
+<ul>
+<li><strong>Experiencia directa:</strong> la descripción del proceso actual parte de la experiencia de un integrante del equipo que trabajó en el servicio técnico de la empresa.</li>
+<li><strong>Entrevista:</strong> se prevé entrevistar al jefe de servicio técnico para validar el proceso, los estados de una orden, los precios y el manejo de repuestos (por coordinar).</li>
+<li><strong>Revisión documental:</strong> se revisarán los documentos que usa el servicio técnico, como el recibo de recepción y la cotización.</li>
+<li><strong>Modelado:</strong> diagramas del análisis estructurado y de UML, elaborados con una herramienta automatizada de diagramación.</li>
+</ul>
+<h3>6.3 Metodología de desarrollo</h3>
+<p>El trabajo se desarrolla de forma iterativa e incremental: cada parte se publica en el sitio del proyecto conforme se completa y se corrige con las observaciones recibidas. El análisis sigue los dos paradigmas indicados por la materia: el estructurado (modelo ambiental, modelo de comportamiento y modelo de datos) y el orientado a objetos con UML.</p>
+
+<h2>7. Justificación</h2>
+<p><strong>Justificación operativa.</strong> Un sistema que centralice las órdenes, los diagnósticos, las cotizaciones y los pagos permitiría conocer en cualquier momento el estado de cada equipo y consultar el historial de un cliente o de un equipo, sin depender de papeles ni de la memoria del personal. Un inventario digital de repuestos permitiría saber qué hay disponible y detectar a tiempo los que faltan.</p>
+<p><strong>Justificación técnica.</strong> El sistema se diseña por módulos, con el servicio técnico como primer módulo, de modo que Drontec pueda sumar más adelante otras áreas, como ventas o alquiler, sin rehacer lo anterior.</p>
+<p><strong>Justificación académica.</strong> El trabajo permite aplicar sobre un caso real los modelos del análisis estructurado y del análisis orientado a objetos vistos en la materia.</p>
+
+<h2>8. Alcances y delimitaciones</h2>
+<h3>8.1 Alcance</h3>
+<p>El trabajo cubre el análisis y diseño del proceso de servicio técnico de Drontec y de las funciones que lo apoyan directamente: recepción y registro de equipos, asignación de técnicos, diagnóstico, cotización y aprobación, control de repuestos del servicio técnico, pagos internos, entrega, y consultas y reportes.</p>
+<h3>8.2 Delimitaciones</h3>
+<ul>
+<li>No incluye la gestión de ventas, alquileres ni de los servicios de ingeniería de Drontec.</li>
+<li>No incluye facturación fiscal ni conexión con el Servicio de Impuestos Nacionales; el sistema registra pagos internos.</li>
+<li>No incluye la integración con WhatsApp; el personal comunica el estado de la orden por los canales que ya utiliza.</li>
+<li>El proceso descrito se basa en la experiencia de un integrante del equipo y puede haber cambiado; los precios y el procedimiento de compra de repuestos están por confirmar.</li>
+</ul>
+
+<h2>9. Planificación de actividades</h2>
+<p>La planificación se organiza por fases hasta la entrega final del 8 de diciembre de 2026, e incluye la publicación del sitio, la entrega impresa y la defensa. Las fechas son una propuesta que el equipo ajustará durante el trabajo.</p>
+<table>
+<tr><th>Fase</th><th>Actividades</th><th>Fechas (propuesta)</th></tr>
+<tr><td>1. Sitio y Parte I</td><td>Crear el sitio, publicar portada y Generalidades y marco teórico</td><td>26 al 29 de octubre</td></tr>
+<tr><td>2. Parte II</td><td>Análisis y diseño estructurado: modelo ambiental, diagramas de flujo de datos, modelo de datos</td><td>30 de octubre al 15 de noviembre</td></tr>
+<tr><td>3. Parte III</td><td>Análisis y diseño orientado a objetos con UML</td><td>9 al 29 de noviembre</td></tr>
+<tr><td>4. Integración</td><td>Revisión del trabajo completo y publicación final en el sitio</td><td>23 de noviembre al 2 de diciembre</td></tr>
+<tr><td>5. Cierre</td><td>Entrega impresa y preparación de la defensa</td><td>30 de noviembre al 7 de diciembre</td></tr>
+</table>
+<p class="cap">Tabla 1. Fases del trabajo y fechas propuestas. Elaboración propia.</p>
+<figure><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHYWoRxKZTlrILyz-6X2c8e5eNFW9u9e30Z8OWj1GefZg-NjHzyoF8e3OzPY4S5RiVAIrb45Wgg7l88kSLPLl3_IujDpPyqNt_viWlIBYbVWlE7RCKVcgwEbwL8kY6hpS0TSSpVTxqLZZliY1OmvrZAigI46RRuIMdaCVGJsxuz97TvYO4g5ymK4FXwl8/s1600/image.png" alt="Diagrama de Gantt de la planificación"><figcaption>Figura 2. Diagrama de Gantt de la planificación. Elaboración propia.</figcaption></figure>
+</article></main>
+<footer>Proyecto de Análisis y Diseño de Sistemas, INF-241 (grupo de los martes). Universidad Mayor de San Andrés, Carrera de Informática. La Paz, Bolivia, octubre de 2026.</footer>
+</body>
+</html>
