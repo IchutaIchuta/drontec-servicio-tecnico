@@ -10,41 +10,24 @@
 <header><div class="in"><a class="t" href="index.html">Sistema Web para la Gestión de Servicio Técnico en Drontec</a><nav><a href="index.html">Portada</a><a href="parte-1.html">I. Generalidades y marco teórico</a><a href="parte-2.html" class="on">II. Análisis y diseño estructurado</a><a href="parte-3.html">III. Análisis y diseño orientado a objetos</a></nav></div></header>
 <main><article>
 <h1>II. Análisis y diseño estructurado</h1>
-<p>Esta parte aplica el paradigma del análisis estructurado al sistema
-web para la gestión del servicio técnico de Drontec. Se desarrolla
-primero el modelo ambiental, que define la frontera del sistema y su
-relación con el entorno, y a continuación el modelo de comportamiento
-(diagramas de flujo de datos), el modelo de datos y el modelo de
-estados.</p>
-<ul class="toc"><li><a href="#modelo-ambiental">1. Modelo ambiental</a></li><li><a href="#modelo-de-comportamiento">2. Modelo de comportamiento</a></li><li><a href="#diagrama-entidad-relación">3. Diagrama entidad-relación</a></li><li><a href="#diagrama-de-transición-de-estados">4. Diagrama de transición de estados</a></li></ul>
+<p>Esta parte aplica el paradigma del análisis estructurado al sistema web para la gestión del servicio técnico de Drontec. Se desarrolla primero el modelo ambiental, que define la frontera del sistema y su relación con el entorno, y a continuación el modelo de comportamiento (diagramas de flujo de datos), el modelo de datos, con su diccionario, y el modelo de estados.</p>
+<ul class="toc"><li><a href="#modelo-ambiental">1. Modelo ambiental</a></li><li><a href="#modelo-de-comportamiento">2. Modelo de comportamiento</a></li><li><a href="#diagrama-entidad-relacion">3. Diagrama entidad-relación</a></li><li><a href="#diccionario-de-datos">4. Diccionario de datos</a></li><li><a href="#diagrama-de-transicion-de-estados">5. Diagrama de transición de estados</a></li></ul>
+<p><strong>II. ANÁLISIS Y DISEÑO ESTRUCTURADO</strong></p>
+<p>Esta parte aplica el paradigma del análisis estructurado al sistema web para la gestión del servicio técnico de Drontec. Se desarrolla primero el modelo ambiental, que define la frontera del sistema y su relación con el entorno, y a continuación el modelo de comportamiento (diagramas de flujo de datos), el modelo de datos y el modelo de estados.</p>
 <h2 id="modelo-ambiental">1. Modelo ambiental</h2>
-<h3 id="declaración-de-propósito">1.1 Declaración de
-propósito</h3>
-<p>El sistema registra y da seguimiento a cada equipo que ingresa al
-servicio técnico de Drontec, desde la solicitud de cotización y el
-recojo hasta su entrega. Controla la asignación de técnicos, las
-cotizaciones, los repuestos y los pagos, para que cualquier persona del
-taller conozca el estado de cada trabajo.</p>
-<p>No incluye ventas, alquiler de equipos, servicios de ingeniería,
-facturación con el SIN ni integración con WhatsApp.</p>
-<h3 id="diagrama-de-contexto">1.2 Diagrama de
-contexto</h3>
-<p>El diagrama de contexto representa todo el sistema como un único
-proceso y muestra con qué entidades externas se comunica y qué datos
-intercambia con cada una. Cada flecha es un flujo de datos y su punta
-indica el sentido: hacia el sistema es una entrada y hacia la entidad es
-una salida. Para que el diagrama se lea con claridad, algunos flujos se
-presentan agrupados (por ejemplo, “Pagos” reúne el pago del envío, el
-anticipo y el saldo) y el ingreso con credenciales, con el acceso según
-el rol, no se dibuja porque aplica a las cuatro entidades del taller. La
-tabla 1 detalla cada flujo, y el diagrama se presenta en la figura 1.</p>
+<h3 id="declaracion-de-proposito">1.1 Declaración de propósito</h3>
+<p>El sistema registra y da seguimiento a cada equipo que ingresa al servicio técnico de Drontec, desde la solicitud de cotización y el recojo hasta su entrega. Controla la asignación de técnicos, las cotizaciones, los repuestos y los pagos, para que cualquier persona del taller conozca el estado de cada trabajo.</p>
+<p>No incluye ventas, alquiler de equipos, servicios de ingeniería, facturación con el SIN ni integración con WhatsApp.</p>
+<h3 id="diagrama-de-contexto">1.2 Diagrama de contexto</h3>
+<p>El diagrama de contexto representa todo el sistema como un único proceso y muestra con qué entidades externas se comunica y qué datos intercambia con cada una. Cada flecha es un flujo de datos y su punta indica el sentido: hacia el sistema es una entrada y hacia la entidad es una salida. Para que el diagrama se lea con claridad, algunos flujos se presentan agrupados (por ejemplo, “Pagos” reúne el pago del envío, el anticipo y el saldo) y el ingreso con credenciales, con el acceso según el rol, no se dibuja porque aplica a las cuatro entidades del taller. La tabla 1 detalla cada flujo, y el diagrama se presenta en la página siguiente (figura 1).</p>
 <p class="cap">Tabla 1. Flujos de datos del diagrama de contexto, por entidad externa</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>Entidad externa</th>
-<th>Entradas al sistema</th>
-<th>Salidas del sistema</th>
+<th><strong>Entidad externa</strong></th>
+<th><strong>Entradas al sistema</strong></th>
+<th><strong>Salidas del sistema</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -94,8 +77,7 @@ tabla 1 detalla cada flujo, y el diagrama se presenta en la figura 1.</p>
 </tr>
 <tr class="even">
 <td>Encargado de inventario</td>
-<td><p>Entrada de repuestos (código, descripción, cantidad y
-ubicación)</p>
+<td><p>Entrada de repuestos (código, descripción, cantidad y ubicación)</p>
 <p>Credenciales de acceso (ida)</p></td>
 <td><p>Alerta de reposición</p>
 <p>Reporte de existencias y movimientos</p>
@@ -111,84 +93,66 @@ ubicación)</p>
 </tbody>
 </table></div>
 <figure><a href="img/diagrama_contexto.png"><img src="img/diagrama_contexto.png" alt="Diagrama de contexto del sistema de servicio técnico de Drontec"></a><figcaption>Figura 1. Diagrama de contexto del sistema web para la gestión de servicio técnico de Drontec</figcaption></figure>
-<h3 id="lista-de-acontecimientos">1.3 Lista de
-acontecimientos</h3>
-<p>Un acontecimiento es algo que ocurre fuera del sistema y al que este
-debe responder. Se incluye además un acontecimiento temporal (el 12),
-que el propio sistema detecta con el paso del tiempo o al alcanzar una
-condición. Los acontecimientos van ordenados según el recorrido del
-equipo.</p>
+<h3 id="lista-de-acontecimientos">1.3 Lista de acontecimientos</h3>
+<p>Un acontecimiento es algo que ocurre fuera del sistema y al que este debe responder. Se incluye además un acontecimiento temporal (el 12), que el propio sistema detecta con el paso del tiempo o al alcanzar una condición. Los acontecimientos van ordenados según el recorrido del equipo.</p>
 <p class="cap">Tabla 2. Lista de acontecimientos</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>N.º</th>
-<th>Acontecimiento</th>
-<th>Entidad</th>
-<th>Respuesta del sistema</th>
-<th>Tipo</th>
+<th><strong>N.º</strong></th>
+<th><strong>Acontecimiento</strong></th>
+<th><strong>Entidad</strong></th>
+<th><strong>Respuesta del sistema</strong></th>
+<th><strong>Tipo</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td>Una persona (de la ciudad o de otro departamento) pide una
-cotización preliminar enviando fotos y una descripción de la falla.</td>
+<td>Una persona (de la ciudad o de otro departamento) pide una cotización preliminar enviando fotos y una descripción de la falla.</td>
 <td>Cliente</td>
-<td>Registra la solicitud (contacto, equipo y falla), genera la
-cotización preliminar como precio estimado no vinculante y se la
-entrega.</td>
+<td>Registra la solicitud (contacto, equipo y falla), genera la cotización preliminar como precio estimado no vinculante y se la entrega.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td>El cliente responde a la cotización preliminar y, si acepta, pide el
-envío del equipo.</td>
+<td>El cliente responde a la cotización preliminar y, si acepta, pide el envío del equipo.</td>
 <td>Cliente</td>
-<td>Registra la respuesta. Si acepta, registra la solicitud de recojo,
-el costo de envío y su pago (efectivo o QR), y emite el comprobante de
-envío.</td>
+<td>Registra la respuesta. Si acepta, registra la solicitud de recojo, el costo de envío y su pago (efectivo o QR), y emite el comprobante de envío.</td>
 <td>Externo</td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>El jefe programa el recojo del equipo en la dirección del
-cliente.</td>
+<td>El jefe programa el recojo del equipo en la dirección del cliente.</td>
 <td>Jefe de servicio técnico</td>
-<td>Registra fecha, responsable y estado “en recojo”, y mantiene la
-lista de recojos pendientes.</td>
+<td>Registra fecha, responsable y estado “en recojo”, y mantiene la lista de recojos pendientes.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>El cliente lleva el equipo al taller, o el equipo recogido llega al
-taller.</td>
+<td>El cliente lleva el equipo al taller, o el equipo recogido llega al taller.</td>
 <td>Cliente</td>
-<td>Registra cliente, equipo, accesorios, falla y forma de ingreso (en
-persona o por recojo). Genera la orden con su código y emite el
-comprobante de recepción.</td>
+<td>Registra cliente, equipo, accesorios, falla y forma de ingreso (en persona o por recojo). Genera la orden con su código y emite el comprobante de recepción.</td>
 <td>Externo</td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>El jefe decide qué técnico se encarga de una orden.</td>
 <td>Jefe de servicio técnico</td>
-<td>Registra la asignación (y las reasignaciones, si las hay) y muestra
-la orden al técnico.</td>
+<td>Registra la asignación (y las reasignaciones, si las hay) y muestra la orden al técnico.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td>El técnico revisa el equipo y determina la falla.</td>
 <td>Técnico</td>
-<td>Registra el diagnóstico y los repuestos necesarios, y actualiza el
-estado.</td>
+<td>Registra el diagnóstico y los repuestos necesarios, y actualiza el estado.</td>
 <td>Externo</td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td>El servicio tiene un precio establecido (por ejemplo, una
-limpieza).</td>
+<td>El servicio tiene un precio establecido (por ejemplo, una limpieza).</td>
 <td>Técnico</td>
 <td>Registra el servicio con su precio, sin exigir cotización.</td>
 <td>Externo</td>
@@ -197,15 +161,12 @@ limpieza).</td>
 <td>8</td>
 <td>La reparación necesita repuestos o trabajos adicionales.</td>
 <td>Técnico</td>
-<td>Genera la cotización final ligada a la orden (confirma o ajusta la
-preliminar, si la hubo), la entrega al cliente y deja la orden pendiente
-de aprobación.</td>
+<td>Genera la cotización final ligada a la orden (confirma o ajusta la preliminar, si la hubo), la entrega al cliente y deja la orden pendiente de aprobación.</td>
 <td>Externo</td>
 </tr>
 <tr class="odd">
 <td>9</td>
-<td>El cliente responde a la cotización final (aprueba, rechaza o aún no
-responde).</td>
+<td>El cliente responde a la cotización final (aprueba, rechaza o aún no responde).</td>
 <td>Cliente</td>
 <td>Registra la respuesta y actualiza el estado de la orden.</td>
 <td>Externo</td>
@@ -214,33 +175,28 @@ responde).</td>
 <td>10</td>
 <td>El técnico necesita un repuesto.</td>
 <td>Técnico</td>
-<td>Muestra la disponibilidad. Si hay, registra su uso y lo descuenta;
-si no, deja la orden pendiente de repuesto.</td>
+<td>Muestra la disponibilidad. Si hay, registra su uso y lo descuenta; si no, deja la orden pendiente de repuesto.</td>
 <td>Externo</td>
 </tr>
 <tr class="odd">
 <td>11</td>
 <td>Llega o se incorpora un repuesto.</td>
 <td>Encargado de inventario</td>
-<td>Registra la entrada (código, descripción, cantidad y ubicación) y
-actualiza las existencias.</td>
+<td>Registra la entrada (código, descripción, cantidad y ubicación) y actualiza las existencias.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
 <td>12</td>
-<td>Un repuesto llega a su nivel mínimo (el mínimo se define
-después).</td>
+<td>Un repuesto llega a su nivel mínimo (el mínimo se define después).</td>
 <td>Encargado de inventario (destinatario)</td>
-<td>Emite la alerta de reposición. Es un acontecimiento temporal: lo
-detecta el propio sistema al comparar existencias con el mínimo.</td>
+<td>Emite la alerta de reposición. Es un acontecimiento temporal: lo detecta el propio sistema al comparar existencias con el mínimo.</td>
 <td>Temporal</td>
 </tr>
 <tr class="odd">
 <td>13</td>
 <td>El técnico repara y prueba el equipo.</td>
 <td>Técnico</td>
-<td>Registra los trabajos, las pruebas y el cambio de estado hasta
-dejarlo listo para entrega.</td>
+<td>Registra los trabajos, las pruebas y el cambio de estado hasta dejarlo listo para entrega.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
@@ -254,16 +210,14 @@ dejarlo listo para entrega.</td>
 <td>15</td>
 <td>El cliente paga un anticipo o el saldo.</td>
 <td>Cliente</td>
-<td>Registra total, anticipo, saldo, fecha y método (efectivo o QR) y
-emite el comprobante de pago.</td>
+<td>Registra total, anticipo, saldo, fecha y método (efectivo o QR) y emite el comprobante de pago.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
 <td>16</td>
 <td>El cliente recoge su equipo.</td>
 <td>Cliente</td>
-<td>Registra la entrega (fecha, quién recibió y accesorios devueltos),
-cierra la orden y emite el ticket de entrega.</td>
+<td>Registra la entrega (fecha, quién recibió y accesorios devueltos), cierra la orden y emite el ticket de entrega.</td>
 <td>Externo</td>
 </tr>
 <tr class="odd">
@@ -282,16 +236,14 @@ cierra la orden y emite el ticket de entrega.</td>
 </tr>
 <tr class="odd">
 <td>19</td>
-<td>Se consulta el historial de un cliente o de un equipo (por ejemplo,
-un cliente frecuente que vuelve).</td>
+<td>Se consulta el historial de un cliente o de un equipo (por ejemplo, un cliente frecuente que vuelve).</td>
 <td>Jefe de servicio técnico / Técnico</td>
 <td>Muestra sus órdenes y pagos anteriores.</td>
 <td>Externo</td>
 </tr>
 <tr class="even">
 <td>20</td>
-<td>Se necesita un reporte por día, semana, mes o año (por ejemplo, qué
-modelos se reparan más).</td>
+<td>Se necesita un reporte por día, semana, mes o año (por ejemplo, qué modelos se reparan más).</td>
 <td>Jefe de servicio técnico</td>
 <td>Genera el reporte básico de órdenes, repuestos o pagos.</td>
 <td>Externo</td>
@@ -307,117 +259,80 @@ modelos se reparan más).</td>
 <td>22</td>
 <td>Una persona del taller intenta ingresar al sistema.</td>
 <td>Técnico, jefe, encargado o administrador</td>
-<td>Valida sus credenciales y le muestra solo lo que su rol
-permite.</td>
+<td>Valida sus credenciales y le muestra solo lo que su rol permite.</td>
 <td>Externo</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="supuestos-y-puntos-por-confirmar-con-drontec">1.4
-Supuestos y puntos por confirmar con Drontec</h3>
-<p>Para completar el modelo se adoptaron los siguientes supuestos, que
-deben validarse con la empresa:</p>
+<h3 id="supuestos-y-puntos-por-confirmar-con-drontec">1.4 Supuestos y puntos por confirmar con Drontec</h3>
+<p>Para completar el modelo se adoptaron los siguientes supuestos, que deben validarse con la empresa:</p>
 <ul>
-<li><p>La cotización preliminar es un precio estimado y no vinculante;
-el precio definitivo se fija con la cotización final tras el
-diagnóstico.</p></li>
-<li><p>El envío del equipo lo coordina el jefe de servicio técnico, y el
-cliente paga el costo de envío una vez que acepta la cotización
-preliminar.</p></li>
-<li><p>La devolución del equipo a un cliente de otro departamento (envío
-de retorno) queda por definir con Drontec; por ahora la entrega se
-registra como recojo en el taller.</p></li>
-<li><p>El cliente consulta el estado de su equipo con el código de su
-orden, que figura en el comprobante de recepción.</p></li>
-<li><p>Los pagos se registran en efectivo o por QR; no hay integración
-con el Servicio de Impuestos Nacionales (SIN) ni con WhatsApp.</p></li>
-<li><p>El nivel mínimo de existencias de cada repuesto se definirá más
-adelante.</p></li>
+<li><p>La cotización preliminar es un precio estimado y no vinculante; el precio definitivo se fija con la cotización final tras el diagnóstico.</p></li>
+<li><p>El envío del equipo lo coordina el jefe de servicio técnico, y el cliente paga el costo de envío una vez que acepta la cotización preliminar.</p></li>
+<li><p>La devolución del equipo a un cliente de otro departamento (envío de retorno) queda por definir con Drontec; por ahora la entrega se registra como recojo en el taller.</p></li>
+<li><p>El cliente consulta el estado de su equipo con el código de su orden, que figura en el comprobante de recepción.</p></li>
+<li><p>Los pagos se registran en efectivo o por QR; no hay integración con el Servicio de Impuestos Nacionales (SIN) ni con WhatsApp.</p></li>
+<li><p>El nivel mínimo de existencias de cada repuesto se definirá más adelante.</p></li>
 </ul>
-<h2 id="modelo-de-comportamiento">2. Modelo de
-comportamiento</h2>
-<h3 id="diagrama-de-flujo-de-datos-de-nivel-0">2.1 Diagrama de
-flujo de datos de nivel 0</h3>
-<p>El diagrama de nivel 0 descompone el proceso único del diagrama de
-contexto en los siete procesos principales del sistema, y muestra los
-almacenes de datos que utilizan. Los flujos entre las entidades externas
-y el sistema son los mismos del diagrama de contexto, de modo que ambos
-diagramas están balanceados; solo se reparten entre los procesos que los
-reciben o los emiten. Dos flujos del contexto se dividen según el
-proceso: “Cotización: solicitud y respuesta” aparece como “Solicitud de
-cotización” (proceso 1.0) y “Respuesta de cotización” (proceso 2.0), y
-“Cotización preliminar y final” aparece como “Cotización preliminar”
-(1.0) y “Cotización final” (2.0). Cuando una entidad envía o recibe
-varios datos por el mismo camino, se agrupan en una sola flecha
-separados por comas. Los almacenes D4 (Órdenes de servicio) y D8
-(Historial) aparecen dos veces para no cruzar líneas, pero cada uno es
-un único almacén; en los almacenes, la flecha indica si el proceso lo
-lee, lo escribe o ambas cosas.</p>
+<h2 id="modelo-de-comportamiento">2. Modelo de comportamiento</h2>
+<h3 id="diagrama-de-flujo-de-datos-de-nivel-0">2.1 Diagrama de flujo de datos de nivel 0</h3>
+<p>El diagrama de nivel 0 descompone el proceso único del diagrama de contexto en los siete procesos principales del sistema, y muestra los almacenes de datos que utilizan. Los flujos entre las entidades externas y el sistema son los mismos del diagrama de contexto, de modo que ambos diagramas están balanceados; solo se reparten entre los procesos que los reciben o los emiten. Dos flujos del contexto se dividen según el proceso: “Cotización: solicitud y respuesta” aparece como “Solicitud de cotización” (proceso 1.0) y “Respuesta de cotización” (proceso 2.0), y “Cotización preliminar y final” aparece como “Cotización preliminar” (1.0) y “Cotización final” (2.0). Cuando una entidad envía o recibe varios datos por el mismo camino, se agrupan en una sola flecha separados por comas. Los almacenes D4 (Órdenes de servicio) y D8 (Historial) aparecen dos veces para no cruzar líneas, pero cada uno es un único almacén; en los almacenes, la flecha indica si el proceso lo lee, lo escribe o ambas cosas.</p>
 <p class="cap">Tabla 3. Procesos del diagrama de flujo de datos de nivel 0</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>N.º</th>
-<th>Proceso</th>
-<th>Descripción</th>
+<th><strong>N.º</strong></th>
+<th><strong>Proceso</strong></th>
+<th><strong>Descripción</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1.0</td>
 <td>Recepción y cotización preliminar</td>
-<td>Registra al cliente, el equipo y la falla; genera la orden con su
-código, gestiona el recojo cuando corresponde y emite el comprobante de
-recepción y la cotización preliminar.</td>
+<td>Registra al cliente, el equipo y la falla; genera la orden con su código, gestiona el recojo cuando corresponde y emite el comprobante de recepción y la cotización preliminar.</td>
 </tr>
 <tr class="even">
 <td>2.0</td>
 <td>Diagnóstico y cotización final</td>
-<td>Recibe el diagnóstico y los repuestos requeridos, fija la cotización
-final y registra la aprobación o el rechazo del cliente.</td>
+<td>Recibe el diagnóstico y los repuestos requeridos, fija la cotización final y registra la aprobación o el rechazo del cliente.</td>
 </tr>
 <tr class="odd">
 <td>3.0</td>
 <td>Reparación y pruebas</td>
-<td>Entrega las órdenes asignadas al técnico, registra el trabajo, las
-pruebas y los cambios de estado, y atiende las consultas de estado y de
-historial del equipo.</td>
+<td>Entrega las órdenes asignadas al técnico, registra el trabajo, las pruebas y los cambios de estado, y atiende las consultas de estado y de historial del equipo.</td>
 </tr>
 <tr class="even">
 <td>4.0</td>
 <td>Control de repuestos</td>
-<td>Registra las entradas de repuestos y los repuestos usados, informa
-su disponibilidad y emite la alerta de reposición y el reporte de
-existencias y movimientos.</td>
+<td>Registra las entradas de repuestos y los repuestos usados, informa su disponibilidad y emite la alerta de reposición y el reporte de existencias y movimientos.</td>
 </tr>
 <tr class="odd">
 <td>5.0</td>
 <td>Cobro y entrega</td>
-<td>Registra los pagos (envío, anticipo y saldo), emite el comprobante
-de pago y el ticket de entrega, y cierra la orden.</td>
+<td>Registra los pagos (envío, anticipo y saldo), emite el comprobante de pago y el ticket de entrega, y cierra la orden.</td>
 </tr>
 <tr class="even">
 <td>6.0</td>
 <td>Supervisión y reportes</td>
-<td>Permite al jefe de servicio técnico asignar técnico y recojo,
-cancelar órdenes y obtener reportes, historial, carga de trabajo y
-recojos pendientes.</td>
+<td>Permite al jefe de servicio técnico asignar técnico y recojo, cancelar órdenes y obtener reportes, historial, carga de trabajo y recojos pendientes.</td>
 </tr>
 <tr class="odd">
 <td>7.0</td>
 <td>Administración de usuarios</td>
-<td>Registra usuarios, roles y permisos, y controla el acceso al sistema
-según el rol.</td>
+<td>Registra usuarios, roles y permisos, y controla el acceso al sistema según el rol.</td>
 </tr>
 </tbody>
 </table></div>
 <p class="cap">Tabla 4. Almacenes de datos</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>Id</th>
-<th>Almacén</th>
-<th>Contenido</th>
+<th><strong>Id</strong></th>
+<th><strong>Almacén</strong></th>
+<th><strong>Contenido</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -434,20 +349,17 @@ según el rol.</td>
 <tr class="odd">
 <td>D3</td>
 <td>Equipos</td>
-<td>Equipos recibidos: tipo, marca, modelo, accesorios y falla
-declarada.</td>
+<td>Equipos recibidos: tipo, marca, modelo, accesorios y falla declarada.</td>
 </tr>
 <tr class="even">
 <td>D4</td>
 <td>Órdenes de servicio</td>
-<td>Órdenes con su código, estado, técnico asignado, recojo y
-entrega.</td>
+<td>Órdenes con su código, estado, técnico asignado, recojo y entrega.</td>
 </tr>
 <tr class="odd">
 <td>D5</td>
 <td>Cotizaciones</td>
-<td>Cotizaciones preliminares y finales, con su aprobación o
-rechazo.</td>
+<td>Cotizaciones preliminares y finales, con su aprobación o rechazo.</td>
 </tr>
 <tr class="even">
 <td>D6</td>
@@ -462,141 +374,98 @@ rechazo.</td>
 <tr class="even">
 <td>D8</td>
 <td>Historial</td>
-<td>Historial de reparaciones, pruebas y repuestos usados por
-equipo.</td>
+<td>Historial de reparaciones, pruebas y repuestos usados por equipo.</td>
 </tr>
 </tbody>
 </table></div>
-<figure><a href="img/dfd_nivel_0.png"><img src="img/dfd_nivel_0.png" alt="Diagrama de flujo de datos de nivel 0"></a><figcaption>Figura 2. Diagrama de flujo de datos de nivel 0 del sistema web de servicio técnico de Drontec</figcaption></figure>
-<h3 id="diagrama-de-flujo-de-datos-de-nivel-1-proceso-1.0">2.2
-Diagrama de flujo de datos de nivel 1: proceso 1.0</h3>
-<p>El proceso 1.0 “Recepción y cotización preliminar” se descompone en
-cinco subprocesos que siguen el orden en que se atiende al cliente. El
-diagrama está balanceado con el nivel 0: el cliente envía y recibe los
-mismos flujos que llegan y salen del proceso 1.0 (datos del cliente,
-equipo y falla, forma de ingreso, solicitud de cotización, comprobante
-de recepción y cotización preliminar; en este nivel los datos de ingreso
-y de equipo se muestran por separado para identificar el subproceso que
-los recibe), y los almacenes D2, D3, D4 y D5 son los mismos del nivel 0.
-Los flujos entre subprocesos (cliente identificado, equipo registrado,
-datos de ingreso y orden generada) son internos y solo aparecen en este
-nivel.</p>
+<figure><a href="img/dfd_nivel_0.png"><img src="img/dfd_nivel_0.png" alt="Diagrama de flujo de datos de nivel 0 del sistema de servicio técnico de Drontec"></a><figcaption>Figura 2. Diagrama de flujo de datos de nivel 0 del sistema web de servicio técnico de Drontec</figcaption></figure>
+<h3 id="diagrama-de-flujo-de-datos-de-nivel-1-proceso-1-0">2.2 Diagrama de flujo de datos de nivel 1: proceso 1.0</h3>
+<p>El proceso 1.0 “Recepción y cotización preliminar” se descompone en cinco subprocesos que siguen el orden en que se atiende al cliente. El diagrama está balanceado con el nivel 0: el cliente envía y recibe los mismos flujos que llegan y salen del proceso 1.0 (datos del cliente, equipo y falla, forma de ingreso, solicitud de cotización, comprobante de recepción y cotización preliminar; en este nivel los datos de ingreso y de equipo se muestran por separado para identificar el subproceso que los recibe), y los almacenes D2, D3, D4 y D5 son los mismos del nivel 0. Los flujos entre subprocesos (cliente identificado, equipo registrado, datos de ingreso y orden generada) son internos y solo aparecen en este nivel.</p>
 <p class="cap">Tabla 5. Subprocesos del proceso 1.0</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>N.º</th>
-<th>Subproceso</th>
-<th>Descripción</th>
+<th><strong>N.º</strong></th>
+<th><strong>Subproceso</strong></th>
+<th><strong>Descripción</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1.1</td>
 <td>Registrar cliente</td>
-<td>Recibe los datos del cliente; si ya existe en D2 lo reutiliza, y si
-no, lo registra.</td>
+<td>Recibe los datos del cliente; si ya existe en D2 lo reutiliza, y si no, lo registra.</td>
 </tr>
 <tr class="even">
 <td>1.2</td>
 <td>Registrar equipo y falla</td>
-<td>Registra el equipo (tipo, marca, modelo, accesorios) y la falla
-declarada, y lo guarda en D3.</td>
+<td>Registra el equipo (tipo, marca, modelo, accesorios) y la falla declarada, y lo guarda en D3.</td>
 </tr>
 <tr class="odd">
 <td>1.3</td>
 <td>Registrar forma de ingreso</td>
-<td>Registra si el equipo llega al taller o si se solicita recojo a
-domicilio.</td>
+<td>Registra si el equipo llega al taller o si se solicita recojo a domicilio.</td>
 </tr>
 <tr class="even">
 <td>1.4</td>
 <td>Generar orden y comprobante</td>
-<td>Reúne los datos del cliente, del equipo y del ingreso, genera la
-orden con su código, la guarda en D4 y emite el comprobante de
-recepción.</td>
+<td>Reúne los datos del cliente, del equipo y del ingreso, genera la orden con su código, la guarda en D4 y emite el comprobante de recepción.</td>
 </tr>
 <tr class="odd">
 <td>1.5</td>
 <td>Elaborar cotización preliminar</td>
-<td>Con los datos de la orden, atiende la solicitud de cotización del
-cliente, guarda la cotización en D5 y se la entrega.</td>
+<td>Con los datos de la orden, atiende la solicitud de cotización del cliente, guarda la cotización en D5 y se la entrega.</td>
 </tr>
 </tbody>
 </table></div>
-<figure><a href="img/dfd_nivel_1_proceso_1.png"><img src="img/dfd_nivel_1_proceso_1.png" alt="Diagrama de flujo de datos de nivel 1: proceso 1.0"></a><figcaption>Figura 3. Diagrama de flujo de datos de nivel 1: explosión del proceso 1.0 Recepción y cotización preliminar</figcaption></figure>
-<h3 id="diagrama-de-flujo-de-datos-de-nivel-2-proceso-1.4">2.3
-Diagrama de flujo de datos de nivel 2: proceso 1.4</h3>
-<p>El subproceso 1.4 “Generar orden y comprobante” se descompone en tres
-procesos. El diagrama está balanceado con el nivel 1: recibe “datos de
-ingreso” del proceso 1.3 y “datos del cliente” y “datos del equipo” de
-los almacenes D2 y D3; entrega “orden generada” al proceso 1.5, guarda
-la orden en D4 y envía el “comprobante de recepción” al cliente. Los
-flujos “orden con código” y “orden registrada” son internos de este
-nivel.</p>
+<figure><a href="img/dfd_nivel_1_proceso_1.png"><img src="img/dfd_nivel_1_proceso_1.png" alt="Diagrama de flujo de datos de nivel 1 del proceso 1.0 Recepción y cotización preliminar"></a><figcaption>Figura 3. Diagrama de flujo de datos de nivel 1: explosión del proceso 1.0 Recepción y cotización preliminar</figcaption></figure>
+<h3 id="diagrama-de-flujo-de-datos-de-nivel-2-proceso-1-4">2.3 Diagrama de flujo de datos de nivel 2: proceso 1.4</h3>
+<p>El subproceso 1.4 “Generar orden y comprobante” se descompone en tres procesos. El diagrama está balanceado con el nivel 1: recibe “datos de ingreso” del proceso 1.3 y “datos del cliente” y “datos del equipo” de los almacenes D2 y D3; entrega “orden generada” al proceso 1.5, guarda la orden en D4 y envía el “comprobante de recepción” al cliente. Los flujos “orden con código” y “orden registrada” son internos de este nivel.</p>
 <p class="cap">Tabla 6. Procesos del subproceso 1.4</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>N.º</th>
-<th>Proceso</th>
-<th>Descripción</th>
+<th><strong>N.º</strong></th>
+<th><strong>Proceso</strong></th>
+<th><strong>Descripción</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1.4.1</td>
 <td>Generar código de orden</td>
-<td>Reúne los datos de ingreso, del cliente (D2) y del equipo (D3) y
-asigna a la orden su código único.</td>
+<td>Reúne los datos de ingreso, del cliente (D2) y del equipo (D3) y asigna a la orden su código único.</td>
 </tr>
 <tr class="even">
 <td>1.4.2</td>
 <td>Registrar orden</td>
-<td>Guarda la orden con su código en D4 y la deja disponible para la
-cotización preliminar (proceso 1.5).</td>
+<td>Guarda la orden con su código en D4 y la deja disponible para la cotización preliminar (proceso 1.5).</td>
 </tr>
 <tr class="odd">
 <td>1.4.3</td>
 <td>Emitir comprobante de recepción</td>
-<td>Con la orden registrada, emite el comprobante de recepción que se
-entrega al cliente.</td>
+<td>Con la orden registrada, emite el comprobante de recepción que se entrega al cliente.</td>
 </tr>
 </tbody>
 </table></div>
-<figure><a href="img/dfd_nivel_2_proceso_1_4.png"><img src="img/dfd_nivel_2_proceso_1_4.png" alt="Diagrama de flujo de datos de nivel 2: proceso 1.4"></a><figcaption>Figura 4. Diagrama de flujo de datos de nivel 2: explosión del proceso 1.4 Generar orden y comprobante</figcaption></figure>
-<h2 id="diagrama-entidad-relación">3. Diagrama
-entidad-relación</h2>
-<p>El diagrama entidad-relación (DER) representa los datos que guardan
-los almacenes del DFD (D1 a D8). Siguiendo el estilo visto en clase,
-cada entidad se dibuja como un rectángulo con su nombre y cada relación
-como un rombo con el verbo que la nombra; los atributos de cada entidad
-se detallan aparte en la Tabla 9. La cardinalidad se escribe junto a
-cada rombo y se lee de la entidad de la izquierda (o de arriba) hacia la
-de la derecha (o de abajo): por ejemplo, “1:N” en “posee” significa que
-un cliente posee varios equipos, y “N:1” en “tiene” (cotización – orden)
-significa que varias cotizaciones pertenecen a una orden. Los usuarios
-del sistema (D1) corresponden a USUARIO; los clientes (D2) a CLIENTE;
-los equipos (D3) a EQUIPO; las órdenes (D4) a ORDEN_SERVICIO; las
-cotizaciones (D5) a COTIZACION; los pagos (D6) a PAGO; los repuestos y
-proveedores (D7) a REPUESTO, ORDEN_REPUESTO, MOVIMIENTO_REPUESTO y
-PROVEEDOR; y el historial (D8) a HISTORIAL. El catálogo de servicios
-(SERVICIO) y los recojos (RECOJO) se guardan junto con las órdenes (D4),
-y el detalle de cada cotización (DETALLE_COTIZACION) junto con las
-cotizaciones (D5).</p>
+<figure><a href="img/dfd_nivel_2_proceso_1_4.png"><img src="img/dfd_nivel_2_proceso_1_4.png" alt="Diagrama de flujo de datos de nivel 2 del proceso 1.4 Generar orden y comprobante"></a><figcaption>Figura 4. Diagrama de flujo de datos de nivel 2: explosión del proceso 1.4 Generar orden y comprobante</figcaption></figure>
+<h2 id="diagrama-entidad-relacion">3. Diagrama entidad-relación</h2>
+<p>El diagrama entidad-relación (DER) representa los datos que guardan los almacenes del DFD (D1 a D8). Siguiendo el estilo visto en clase, cada entidad se dibuja como un rectángulo con su nombre y cada relación como un rombo con el verbo que la nombra; los atributos de cada entidad, con su tipo y su descripción, se detallan en el diccionario de datos de la sección 4 (Tabla 9). La cardinalidad se escribe junto a cada rombo y se lee de la entidad de la izquierda (o de arriba) hacia la de la derecha (o de abajo): por ejemplo, “1:N” en “posee” significa que un cliente posee varios equipos, y “N:1” en “tiene” (cotización – orden) significa que varias cotizaciones pertenecen a una orden. Los usuarios del sistema (D1) corresponden a USUARIO; los clientes (D2) a CLIENTE; los equipos (D3) a EQUIPO; las órdenes (D4) a ORDEN_SERVICIO; las cotizaciones (D5) a COTIZACION; los pagos (D6) a PAGO; los repuestos y proveedores (D7) a REPUESTO, ORDEN_REPUESTO, MOVIMIENTO_REPUESTO y PROVEEDOR; y el historial (D8) a HISTORIAL. El catálogo de servicios (SERVICIO) y los recojos (RECOJO) se guardan junto con las órdenes (D4), y el detalle de cada cotización (DETALLE_COTIZACION) junto con las cotizaciones (D5).</p>
 <p class="cap">Tabla 7. Entidades del DER</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>Entidad</th>
-<th>Descripción</th>
+<th><strong>Entidad</strong></th>
+<th><strong>Descripción</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>USUARIO</td>
-<td>Personal que usa el sistema (jefe de servicio técnico, técnico,
-encargado de inventario, administrador), con su rol y estado.</td>
+<td>Personal que usa el sistema (jefe de servicio técnico, técnico, encargado de inventario, administrador), con su rol y estado.</td>
 </tr>
 <tr class="even">
 <td>CLIENTE</td>
@@ -604,35 +473,27 @@ encargado de inventario, administrador), con su rol y estado.</td>
 </tr>
 <tr class="odd">
 <td>EQUIPO</td>
-<td>Equipo recibido de un cliente: tipo, marca, modelo y
-accesorios.</td>
+<td>Equipo recibido de un cliente: tipo, marca, modelo y accesorios.</td>
 </tr>
 <tr class="even">
 <td>SERVICIO</td>
-<td>Catálogo de servicios con precio establecido (por ejemplo, la
-limpieza), que no requieren cotización.</td>
+<td>Catálogo de servicios con precio establecido (por ejemplo, la limpieza), que no requieren cotización.</td>
 </tr>
 <tr class="odd">
 <td>ORDEN_SERVICIO</td>
-<td>Orden de reparación con su código, la falla declarada, la forma de
-ingreso (taller o recojo), el estado, el técnico asignado, el
-diagnóstico, los trabajos y pruebas, y los datos de la entrega.</td>
+<td>Orden de reparación con su código, la falla declarada, la forma de ingreso (taller o recojo), el estado, el técnico asignado, el diagnóstico, los trabajos y pruebas, y los datos de la entrega.</td>
 </tr>
 <tr class="even">
 <td>RECOJO</td>
-<td>Recojo del equipo en la dirección del cliente, con su fecha,
-responsable, estado y costo de envío. Se registra antes de la orden y se
-enlaza a ella cuando el equipo llega al taller.</td>
+<td>Recojo del equipo en la dirección del cliente, con su fecha, responsable, estado y costo de envío. Se registra antes de la orden y se enlaza a ella cuando el equipo llega al taller.</td>
 </tr>
 <tr class="odd">
 <td>COTIZACION</td>
-<td>Cotización preliminar o final de una orden, con su monto total y su
-estado (aprobada, rechazada o pendiente).</td>
+<td>Cotización preliminar o final de una orden, con su monto total y su estado (aprobada, rechazada o pendiente).</td>
 </tr>
 <tr class="even">
 <td>DETALLE_COTIZACION</td>
-<td>Ítems de una cotización: repuestos, mano de obra o trabajos
-adicionales, con su cantidad y precio.</td>
+<td>Ítems de una cotización: repuestos, mano de obra o trabajos adicionales, con su cantidad y precio.</td>
 </tr>
 <tr class="odd">
 <td>PAGO</td>
@@ -640,23 +501,19 @@ adicionales, con su cantidad y precio.</td>
 </tr>
 <tr class="even">
 <td>HISTORIAL</td>
-<td>Registro de los cambios de estado y de las acciones realizadas sobre
-una orden.</td>
+<td>Registro de los cambios de estado y de las acciones realizadas sobre una orden.</td>
 </tr>
 <tr class="odd">
 <td>REPUESTO</td>
-<td>Repuesto del inventario, con su existencia, existencia mínima,
-ubicación y precio.</td>
+<td>Repuesto del inventario, con su existencia, existencia mínima, ubicación y precio.</td>
 </tr>
 <tr class="even">
 <td>ORDEN_REPUESTO</td>
-<td>Repuestos usados en cada orden y su cantidad; resuelve la relación
-de muchos a muchos entre órdenes y repuestos.</td>
+<td>Repuestos usados en cada orden y su cantidad; resuelve la relación de muchos a muchos entre órdenes y repuestos.</td>
 </tr>
 <tr class="odd">
 <td>MOVIMIENTO_REPUESTO</td>
-<td>Entradas y salidas de cada repuesto del inventario; las entradas
-indican el proveedor.</td>
+<td>Entradas y salidas de cada repuesto del inventario; las entradas indican el proveedor.</td>
 </tr>
 <tr class="even">
 <td>PROVEEDOR</td>
@@ -666,12 +523,13 @@ indican el proveedor.</td>
 </table></div>
 <p class="cap">Tabla 8. Relaciones del DER</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>Entidades</th>
-<th>Relación</th>
-<th>Cardinalidad</th>
-<th>Significado</th>
+<th><strong>Entidades</strong></th>
+<th><strong>Relación</strong></th>
+<th><strong>Cardinalidad</strong></th>
+<th><strong>Significado</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -679,29 +537,25 @@ indican el proveedor.</td>
 <td>CLIENTE – EQUIPO</td>
 <td>posee</td>
 <td>1 : N</td>
-<td>Un cliente puede entregar varios equipos; cada equipo pertenece a un
-cliente.</td>
+<td>Un cliente puede entregar varios equipos; cada equipo pertenece a un cliente.</td>
 </tr>
 <tr class="even">
 <td>USUARIO – ORDEN_SERVICIO</td>
 <td>atiende</td>
 <td>1 : N</td>
-<td>Un técnico atiende varias órdenes; cada orden tiene un técnico
-asignado.</td>
+<td>Un técnico atiende varias órdenes; cada orden tiene un técnico asignado.</td>
 </tr>
 <tr class="odd">
 <td>SERVICIO – ORDEN_SERVICIO</td>
 <td>se aplica en</td>
 <td>1 : N</td>
-<td>Un servicio con precio establecido puede aplicarse en varias
-órdenes; una orden puede tener uno.</td>
+<td>Un servicio con precio establecido puede aplicarse en varias órdenes; una orden puede tener uno.</td>
 </tr>
 <tr class="even">
 <td>EQUIPO – ORDEN_SERVICIO</td>
 <td>ingresa como</td>
 <td>1 : N</td>
-<td>Un equipo puede ingresar varias veces (varias órdenes); cada orden
-corresponde a un equipo.</td>
+<td>Un equipo puede ingresar varias veces (varias órdenes); cada orden corresponde a un equipo.</td>
 </tr>
 <tr class="odd">
 <td>ORDEN_SERVICIO – PAGO</td>
@@ -713,8 +567,7 @@ corresponde a un equipo.</td>
 <td>ORDEN_SERVICIO – HISTORIAL</td>
 <td>registra</td>
 <td>1 : N</td>
-<td>Cada cambio de estado de una orden queda registrado en el
-historial.</td>
+<td>Cada cambio de estado de una orden queda registrado en el historial.</td>
 </tr>
 <tr class="odd">
 <td>ORDEN_SERVICIO – COTIZACION</td>
@@ -732,8 +585,7 @@ historial.</td>
 <td>ORDEN_SERVICIO – RECOJO</td>
 <td>requiere</td>
 <td>1 : N</td>
-<td>Una orden que llega por recojo tiene su recojo programado (y
-reprogramado si hace falta).</td>
+<td>Una orden que llega por recojo tiene su recojo programado (y reprogramado si hace falta).</td>
 </tr>
 <tr class="even">
 <td>COTIZACION – DETALLE_COTIZACION</td>
@@ -767,107 +619,554 @@ reprogramado si hace falta).</td>
 </tr>
 </tbody>
 </table></div>
-<p class="cap">Tabla 9. Atributos de las entidades (PK: llave primaria; FK: llave foránea)</p>
+<figure><a href="img/der.png"><img src="img/der.png" alt="Diagrama entidad-relación del sistema de servicio técnico de Drontec"></a><figcaption>Figura 5. Diagrama entidad-relación del sistema web de servicio técnico de Drontec</figcaption></figure>
+<h2 id="diccionario-de-datos">4. Diccionario de datos</h2>
+<p>El diccionario de datos describe cada entidad del diagrama entidad-relación: sus atributos, el tipo de dato de cada uno y qué representa. Siguiendo el formato visto en clase, se indica la llave primaria con (PK) y la llave foránea con (FK). Los montos están en bolivianos.</p>
+<p class="cap">Tabla 9. Diccionario de datos (PK: llave primaria; FK: llave foránea)</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>Entidad</th>
-<th>Atributos</th>
+<th><strong>Entidad</strong></th>
+<th><strong>Atributo</strong></th>
+<th><strong>Tipo</strong></th>
+<th><strong>Descripción</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>USUARIO</td>
-<td>id_usuario (PK), nombre, usuario, contraseña, rol, estado</td>
+<td>id_usuario (PK)</td>
+<td>varchar(10)</td>
+<td>Código del usuario del sistema.</td>
 </tr>
 <tr class="even">
-<td>CLIENTE</td>
-<td>id_cliente (PK), nombre, telefono, correo, procedencia</td>
+<td></td>
+<td>nombre</td>
+<td>varchar(60)</td>
+<td>Nombre completo de la persona.</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>usuario</td>
+<td>varchar(30)</td>
+<td>Nombre con el que ingresa al sistema.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>contraseña</td>
+<td>varchar(100)</td>
+<td>Contraseña, guardada cifrada.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>rol</td>
+<td>varchar(25)</td>
+<td>Jefe de servicio técnico, técnico, encargado de inventario o administrador.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>estado</td>
+<td>varchar(10)</td>
+<td>Activo o inactivo.</td>
+</tr>
+<tr class="odd">
+<td>CLIENTE</td>
+<td>id_cliente (PK)</td>
+<td>varchar(10)</td>
+<td>Código del cliente.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>nombre</td>
+<td>varchar(60)</td>
+<td>Nombre completo del cliente.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>telefono</td>
+<td>varchar(15)</td>
+<td>Teléfono de contacto.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>correo</td>
+<td>varchar(60)</td>
+<td>Correo electrónico (opcional).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>procedencia</td>
+<td>varchar(40)</td>
+<td>Ciudad o departamento de origen del cliente.</td>
+</tr>
+<tr class="even">
 <td>EQUIPO</td>
-<td>id_equipo (PK), id_cliente (FK), tipo, marca, modelo,
-accesorios</td>
+<td>id_equipo (PK)</td>
+<td>varchar(10)</td>
+<td>Código del equipo.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>id_cliente (FK)</td>
+<td>varchar(10)</td>
+<td>Cliente dueño del equipo.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tipo</td>
+<td>varchar(30)</td>
+<td>Tipo de equipo (dron, control remoto, batería, etc.).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>marca</td>
+<td>varchar(30)</td>
+<td>Marca del equipo.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>modelo</td>
+<td>varchar(30)</td>
+<td>Modelo del equipo.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>accesorios</td>
+<td>varchar(200)</td>
+<td>Accesorios que se entregan junto con el equipo.</td>
 </tr>
 <tr class="even">
 <td>SERVICIO</td>
-<td>id_servicio (PK), nombre, descripcion, precio</td>
+<td>id_servicio (PK)</td>
+<td>varchar(10)</td>
+<td>Código del servicio.</td>
 </tr>
 <tr class="odd">
-<td>ORDEN_SERVICIO</td>
-<td>id_orden (PK), codigo, id_equipo (FK), id_tecnico (FK), id_servicio
-(FK, opcional), falla_declarada, forma_ingreso, estado, diagnostico,
-trabajos_realizados, pruebas, fecha_ingreso, fecha_entrega,
-recibido_por, accesorios_devueltos</td>
+<td></td>
+<td>nombre</td>
+<td>varchar(60)</td>
+<td>Nombre del servicio (por ejemplo, limpieza).</td>
 </tr>
 <tr class="even">
-<td>RECOJO</td>
-<td>id_recojo (PK), id_orden (FK), direccion, fecha_programada,
-responsable, estado, costo_envio</td>
+<td></td>
+<td>descripcion</td>
+<td>varchar(200)</td>
+<td>Qué incluye el servicio.</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>precio</td>
+<td>decimal(10,2)</td>
+<td>Precio establecido, en bolivianos.</td>
+</tr>
+<tr class="even">
+<td>ORDEN_SERVICIO</td>
+<td>id_orden (PK)</td>
+<td>varchar(10)</td>
+<td>Identificador interno de la orden.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>codigo</td>
+<td>varchar(15)</td>
+<td>Código único que figura en el comprobante de recepción.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>id_equipo (FK)</td>
+<td>varchar(10)</td>
+<td>Equipo que ingresó.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>id_tecnico (FK)</td>
+<td>varchar(10)</td>
+<td>Usuario técnico asignado.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>id_servicio (FK)</td>
+<td>varchar(10)</td>
+<td>Servicio con precio establecido, si corresponde (opcional).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>falla_declarada</td>
+<td>varchar(300)</td>
+<td>Falla que indica el cliente.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>forma_ingreso</td>
+<td>varchar(10)</td>
+<td>En taller o por recojo.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>estado</td>
+<td>varchar(30)</td>
+<td>Estado actual de la orden (ver el diagrama de transición de estados).</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>diagnostico</td>
+<td>varchar(500)</td>
+<td>Falla determinada por el técnico.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>trabajos_realizados</td>
+<td>varchar(500)</td>
+<td>Trabajos hechos durante la reparación.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>pruebas</td>
+<td>varchar(300)</td>
+<td>Pruebas realizadas antes de la entrega.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fecha_ingreso</td>
+<td>date</td>
+<td>Fecha en que el equipo llegó al taller.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fecha_entrega</td>
+<td>date</td>
+<td>Fecha en que el cliente recogió el equipo.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>recibido_por</td>
+<td>varchar(60)</td>
+<td>Persona que recibió el equipo en la entrega.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>accesorios_devueltos</td>
+<td>varchar(200)</td>
+<td>Accesorios devueltos al cliente.</td>
+</tr>
+<tr class="odd">
+<td>RECOJO</td>
+<td>id_recojo (PK)</td>
+<td>varchar(10)</td>
+<td>Código del recojo.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>id_orden (FK)</td>
+<td>varchar(10)</td>
+<td>Orden a la que se enlaza cuando el equipo llega al taller.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>direccion</td>
+<td>varchar(150)</td>
+<td>Dirección donde se recoge el equipo.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fecha_programada</td>
+<td>date</td>
+<td>Fecha programada del recojo.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>responsable</td>
+<td>varchar(60)</td>
+<td>Persona encargada del recojo.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>estado</td>
+<td>varchar(15)</td>
+<td>Pendiente, en recojo o completado.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>costo_envio</td>
+<td>decimal(10,2)</td>
+<td>Costo del envío, en bolivianos.</td>
+</tr>
+<tr class="even">
 <td>COTIZACION</td>
-<td>id_cotizacion (PK), id_orden (FK), tipo, monto_total, estado,
-fecha</td>
+<td>id_cotizacion (PK)</td>
+<td>varchar(10)</td>
+<td>Código de la cotización.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>id_orden (FK)</td>
+<td>varchar(10)</td>
+<td>Orden cotizada.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tipo</td>
+<td>varchar(12)</td>
+<td>Preliminar o final.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>monto_total</td>
+<td>decimal(10,2)</td>
+<td>Monto total cotizado, en bolivianos.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>estado</td>
+<td>varchar(12)</td>
+<td>Pendiente, aprobada o rechazada.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fecha</td>
+<td>date</td>
+<td>Fecha de la cotización.</td>
 </tr>
 <tr class="even">
 <td>DETALLE_COTIZACION</td>
-<td>id_detalle (PK), id_cotizacion (FK), id_repuesto (FK, opcional),
-descripcion, cantidad, precio_unitario</td>
+<td>id_detalle (PK)</td>
+<td>varchar(10)</td>
+<td>Código del ítem.</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>id_cotizacion (FK)</td>
+<td>varchar(10)</td>
+<td>Cotización a la que pertenece.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>id_repuesto (FK)</td>
+<td>varchar(10)</td>
+<td>Repuesto cotizado, si el ítem es un repuesto (opcional).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>descripcion</td>
+<td>varchar(150)</td>
+<td>Descripción del ítem (repuesto, mano de obra, trabajo adicional).</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cantidad</td>
+<td>int</td>
+<td>Cantidad cotizada.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>precio_unitario</td>
+<td>decimal(10,2)</td>
+<td>Precio de una unidad, en bolivianos.</td>
+</tr>
+<tr class="even">
 <td>PAGO</td>
-<td>id_pago (PK), id_orden (FK), tipo, monto, fecha</td>
+<td>id_pago (PK)</td>
+<td>varchar(10)</td>
+<td>Código del pago.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>id_orden (FK)</td>
+<td>varchar(10)</td>
+<td>Orden que se paga.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tipo</td>
+<td>varchar(10)</td>
+<td>Envío, anticipo o saldo.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>monto</td>
+<td>decimal(10,2)</td>
+<td>Monto pagado, en bolivianos.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>metodo</td>
+<td>varchar(10)</td>
+<td>Efectivo o QR.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fecha</td>
+<td>date</td>
+<td>Fecha del pago.</td>
 </tr>
 <tr class="even">
 <td>HISTORIAL</td>
-<td>id_historial (PK), id_orden (FK), fecha, estado, descripcion</td>
+<td>id_historial (PK)</td>
+<td>varchar(10)</td>
+<td>Código del registro.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>id_orden (FK)</td>
+<td>varchar(10)</td>
+<td>Orden a la que corresponde.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fecha</td>
+<td>date</td>
+<td>Fecha del cambio.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>estado</td>
+<td>varchar(30)</td>
+<td>Estado al que pasó la orden.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>descripcion</td>
+<td>varchar(200)</td>
+<td>Acción realizada sobre la orden.</td>
 </tr>
 <tr class="odd">
 <td>REPUESTO</td>
-<td>id_repuesto (PK), nombre, stock, stock_minimo, ubicacion,
-precio</td>
+<td>id_repuesto (PK)</td>
+<td>varchar(10)</td>
+<td>Código del repuesto.</td>
 </tr>
 <tr class="even">
-<td>ORDEN_REPUESTO</td>
-<td>id_orden (PK, FK), id_repuesto (PK, FK), cantidad</td>
+<td></td>
+<td>nombre</td>
+<td>varchar(60)</td>
+<td>Nombre del repuesto.</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>stock</td>
+<td>int</td>
+<td>Unidades disponibles.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>stock_minimo</td>
+<td>int</td>
+<td>Existencia mínima antes de emitir la alerta de reposición.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ubicacion</td>
+<td>varchar(40)</td>
+<td>Lugar donde se guarda.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>precio</td>
+<td>decimal(10,2)</td>
+<td>Precio de una unidad, en bolivianos.</td>
+</tr>
+<tr class="odd">
+<td>ORDEN_REPUESTO</td>
+<td>id_orden (PK, FK)</td>
+<td>varchar(10)</td>
+<td>Orden que usa el repuesto.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>id_repuesto (PK, FK)</td>
+<td>varchar(10)</td>
+<td>Repuesto usado.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cantidad</td>
+<td>int</td>
+<td>Unidades usadas en la orden.</td>
+</tr>
+<tr class="even">
 <td>MOVIMIENTO_REPUESTO</td>
-<td>id_movimiento (PK), id_repuesto (FK), id_proveedor (FK, opcional),
-tipo, cantidad, fecha</td>
+<td>id_movimiento (PK)</td>
+<td>varchar(10)</td>
+<td>Código del movimiento.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>id_repuesto (FK)</td>
+<td>varchar(10)</td>
+<td>Repuesto que se mueve.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>id_proveedor (FK)</td>
+<td>varchar(10)</td>
+<td>Proveedor, solo en las entradas (opcional).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tipo</td>
+<td>varchar(10)</td>
+<td>Entrada o salida.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cantidad</td>
+<td>int</td>
+<td>Unidades del movimiento.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fecha</td>
+<td>date</td>
+<td>Fecha del movimiento.</td>
 </tr>
 <tr class="even">
 <td>PROVEEDOR</td>
-<td>id_proveedor (PK), nombre, telefono, correo, direccion</td>
+<td>id_proveedor (PK)</td>
+<td>varchar(10)</td>
+<td>Código del proveedor.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>nombre</td>
+<td>varchar(60)</td>
+<td>Nombre o razón social.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>telefono</td>
+<td>varchar(15)</td>
+<td>Teléfono de contacto.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>correo</td>
+<td>varchar(60)</td>
+<td>Correo electrónico.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>direccion</td>
+<td>varchar(100)</td>
+<td>Dirección del proveedor.</td>
 </tr>
 </tbody>
 </table></div>
-<figure><a href="img/der.png"><img src="img/der.png" alt="Diagrama entidad-relación"></a><figcaption>Figura 5. Diagrama entidad-relación del sistema web de servicio técnico de Drontec</figcaption></figure>
-<h2 id="diagrama-de-transición-de-estados">4. Diagrama de
-transición de estados</h2>
-<p>El diagrama de transición de estados (DTE) representa las situaciones
-por las que pasa un objeto durante su ciclo de vida en el sistema. En
-este proyecto el objeto es la orden de servicio, desde que el equipo se
-recibe hasta que se entrega o se cancela. Siguiendo el estilo visto en
-clase, cada estado se dibuja como un rectángulo de esquinas redondeadas,
-el círculo negro de arriba es el inicio y el de abajo es el fin. Cada
-flecha es una transición y lleva dos textos separados por una línea:
-arriba, el acontecimiento que la provoca y, abajo, la acción con la que
-responde el sistema.</p>
+<h2 id="diagrama-de-transicion-de-estados">5. Diagrama de transición de estados</h2>
+<p>El diagrama de transición de estados (DTE) representa las situaciones por las que pasa un objeto durante su ciclo de vida en el sistema. En este proyecto el objeto es la orden de servicio, desde que el equipo se recibe hasta que se entrega o se cancela. Siguiendo el estilo visto en clase, cada estado se dibuja como un rectángulo de esquinas redondeadas, el círculo negro de arriba es el inicio y el de abajo es el fin. Cada flecha es una transición y lleva dos textos separados por una línea: arriba, el acontecimiento que la provoca y, abajo, la acción con la que responde el sistema.</p>
 <p class="cap">Tabla 10. Estados de la orden de servicio</p>
 <div class="tw"><table>
+
 <thead>
 <tr class="header">
-<th>Estado</th>
-<th>Significado</th>
+<th><strong>Estado</strong></th>
+<th><strong>Significado</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>RECIBIDO</td>
-<td>El equipo ya está en el taller y la orden fue generada con su código
-y su comprobante de recepción. Es el estado inicial.</td>
+<td>El equipo ya está en el taller y la orden fue generada con su código y su comprobante de recepción. Es el estado inicial.</td>
 </tr>
 <tr class="even">
 <td>ASIGNADO</td>
@@ -875,50 +1174,36 @@ y su comprobante de recepción. Es el estado inicial.</td>
 </tr>
 <tr class="odd">
 <td>EN DIAGNÓSTICO</td>
-<td>El técnico revisa el equipo y determina la falla y los repuestos
-necesarios.</td>
+<td>El técnico revisa el equipo y determina la falla y los repuestos necesarios.</td>
 </tr>
 <tr class="even">
 <td>PENDIENTE DE APROBACIÓN</td>
-<td>La cotización final fue entregada al cliente y se espera su
-respuesta.</td>
+<td>La cotización final fue entregada al cliente y se espera su respuesta.</td>
 </tr>
 <tr class="odd">
 <td>EN REPARACIÓN</td>
-<td>El cliente aprobó la cotización; el técnico repara y prueba el
-equipo.</td>
+<td>El cliente aprobó la cotización; el técnico repara y prueba el equipo.</td>
 </tr>
 <tr class="even">
 <td>PENDIENTE DE REPUESTO</td>
-<td>Falta un repuesto; la reparación queda detenida hasta que
-llegue.</td>
+<td>Falta un repuesto; la reparación queda detenida hasta que llegue.</td>
 </tr>
 <tr class="odd">
 <td>LISTO PARA ENTREGA</td>
-<td>El equipo está reparado y probado, y espera que el cliente lo
-recoja.</td>
+<td>El equipo está reparado y probado, y espera que el cliente lo recoja.</td>
 </tr>
 <tr class="even">
 <td>ENTREGADO</td>
-<td>El cliente recogió su equipo y la orden quedó cerrada. Es un estado
-final.</td>
+<td>El cliente recogió su equipo y la orden quedó cerrada. Es un estado final.</td>
 </tr>
 <tr class="odd">
 <td>CANCELADA</td>
-<td>La orden fue cancelada o el cliente rechazó la cotización final, y
-el equipo se devuelve sin reparar. Es un estado final.</td>
+<td>La orden fue cancelada o el cliente rechazó la cotización final, y el equipo se devuelve sin reparar. Es un estado final.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Para no recargar el diagrama se omiten dos casos que ya figuran en la
-lista de acontecimientos. Cuando el servicio tiene un precio establecido
-(acontecimiento 7), la orden pasa de EN DIAGNÓSTICO directamente a EN
-REPARACIÓN, sin cotización final. Y el jefe de servicio técnico puede
-cancelar una orden en cualquier momento antes de la entrega
-(acontecimiento 17), con lo que pasa a CANCELADA. La consulta de estado
-por parte del cliente (acontecimiento 14) no cambia el estado de la
-orden.</p>
-<figure><a href="img/dte_orden_de_servicio.png"><img src="img/dte_orden_de_servicio.png" alt="Diagrama de transición de estados de la orden de servicio"></a><figcaption>Figura 6. Diagrama de transición de estados de la orden de servicio</figcaption></figure>
+<p>Para no recargar el diagrama se omiten dos casos que ya figuran en la lista de acontecimientos. Cuando el servicio tiene un precio establecido (acontecimiento 7), la orden pasa de EN DIAGNÓSTICO directamente a EN REPARACIÓN, sin cotización final. Y el jefe de servicio técnico puede cancelar una orden en cualquier momento antes de la entrega (acontecimiento 17), con lo que pasa a CANCELADA. La consulta de estado por parte del cliente (acontecimiento 14) no cambia el estado de la orden.</p>
+<figure><a href="img/dte_orden_de_servicio.png"><img src="img/dte_orden_de_servicio.png" alt="Diagrama de transición de estados de la orden de servicio de Drontec"></a><figcaption>Figura 6. Diagrama de transición de estados de la orden de servicio</figcaption></figure>
 
 </article></main>
 <footer>Proyecto de Análisis y Diseño de Sistemas, INF-241 (grupo de los martes). Universidad Mayor de San Andrés, Carrera de Informática. La Paz, Bolivia, octubre de 2026.</footer>

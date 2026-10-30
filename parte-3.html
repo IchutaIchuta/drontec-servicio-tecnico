@@ -9,7 +9,175 @@
 <body>
 <header><div class="in"><a class="t" href="index.html">Sistema Web para la Gestión de Servicio Técnico en Drontec</a><nav><a href="index.html">Portada</a><a href="parte-1.html">I. Generalidades y marco teórico</a><a href="parte-2.html">II. Análisis y diseño estructurado</a><a href="parte-3.html" class="on">III. Análisis y diseño orientado a objetos</a></nav></div></header>
 <main><article>
-<h1>III. Análisis y diseño orientado a objetos</h1><p>Contenido en construcción. Se publicará de forma incremental.</p>
+<h1>III. Análisis y diseño orientado a objetos</h1>
+<p>En esta parte se modela el sistema de servicio técnico de Drontec con el enfoque orientado a objetos, usando UML. Se presentan, en este orden, el diagrama de clases, el diagrama de casos de uso de sistema, el diagrama de casos de uso de negocio y un caso de uso de tipo texto expandido. Todos parten del trabajo de la parte anterior: los acontecimientos del modelo ambiental dan origen a los casos de uso, y las entidades del DER dan origen a las clases.</p>
+<ul class="toc"><li><a href="#diagrama-de-clases">1. Diagrama de clases</a></li><li><a href="#diagrama-de-casos-de-uso-de-sistema">2. Diagrama de casos de uso de sistema</a></li><li><a href="#diagrama-de-casos-de-uso-de-negocio">3. Diagrama de casos de uso de negocio</a></li><li><a href="#caso-de-uso-de-tipo-texto-expandido">4. Caso de uso de tipo texto expandido</a></li></ul>
+
+<h2 id="diagrama-de-clases">1. Diagrama de clases</h2>
+<p>El diagrama de clases se obtiene de las entidades del DER: cada entidad pasa a ser una clase con sus atributos y con los métodos que le corresponden según los casos de uso. Los atributos llevan visibilidad privada («-») y los métodos visibilidad pública («+»). CLIENTE y USUARIO comparten el nombre, el teléfono y el correo, por lo que heredan de la clase abstracta PERSONA (el triángulo vacío indica herencia, y el nombre en cursiva, que la clase es abstracta). El rombo negro indica composición: el historial no existe sin su orden y el detalle no existe sin su cotización. Junto a cada extremo de una línea se escribe la cardinalidad: “1” es exactamente uno, “0..*” ninguno o varios, “1..*” uno o varios y “0..1” ninguno o uno. Como el diagrama completo es muy grande, se divide en dos; la clase ORDEN_SERVICIO aparece en ambos como punto de unión.</p>
+<figure><a href="img/clases_1_personas_ordenes.png"><img src="img/clases_1_personas_ordenes.png" alt="Diagrama de clases: personas, equipos y órdenes de servicio"></a><figcaption>Figura 1. Diagrama de clases: personas, equipos y órdenes de servicio</figcaption></figure>
+<figure><a href="img/clases_2_cotizaciones_inventario.png"><img src="img/clases_2_cotizaciones_inventario.png" alt="Diagrama de clases: cotizaciones e inventario"></a><figcaption>Figura 2. Diagrama de clases: cotizaciones e inventario</figcaption></figure>
+<h2 id="diagrama-de-casos-de-uso-de-sistema">2. Diagrama de casos de uso de sistema</h2>
+<p>El diagrama de casos de uso de sistema muestra qué funciones ofrece el sistema web a cada actor. Para que se lea con claridad se divide en dos diagramas: el primero reúne las funciones de las órdenes de servicio, las cotizaciones y los pagos, y el segundo las del inventario de repuestos, los reportes y los usuarios. El rectángulo representa el límite del sistema; los actores quedan fuera de él. El proveedor no aparece porque no usa el sistema: sus entregas las registra el encargado de inventario.</p>
+<figure><a href="img/cu_sistema_1_ordenes.png"><img src="img/cu_sistema_1_ordenes.png" alt="Casos de uso de sistema: órdenes de servicio, cotizaciones y pagos"></a><figcaption>Figura 3. Casos de uso de sistema: órdenes de servicio, cotizaciones y pagos</figcaption></figure>
+<figure><a href="img/cu_sistema_2_inventario.png"><img src="img/cu_sistema_2_inventario.png" alt="Casos de uso de sistema: inventario, reportes y usuarios"></a><figcaption>Figura 4. Casos de uso de sistema: inventario, reportes y usuarios</figcaption></figure>
+<h2 id="diagrama-de-casos-de-uso-de-negocio">3. Diagrama de casos de uso de negocio</h2>
+<p>El diagrama de casos de uso de negocio muestra qué hace Drontec como empresa para atender un equipo, sin hablar todavía del sistema informático. Los actores de negocio son el cliente, el jefe de servicio técnico, el técnico, el encargado de inventario y el proveedor. Cada elipse con una marca diagonal es un proceso de negocio. La relación «include» indica que un proceso siempre incluye a otro (por ejemplo, cuando el cliente recoge su equipo reparado se cobra el servicio), y la relación «extend» indica que un proceso se agrega solo en algunos casos (por ejemplo, el recojo se programa solo cuando el equipo viene de otra ciudad).</p>
+<figure><a href="img/cu_negocio.png"><img src="img/cu_negocio.png" alt="Diagrama de casos de uso de negocio de Drontec"></a><figcaption>Figura 5. Diagrama de casos de uso de negocio de Drontec</figcaption></figure>
+<h2 id="caso-de-uso-de-tipo-texto-expandido">4. Caso de uso de tipo texto expandido</h2>
+<p>Como ejemplo se expande el caso de uso “Registrar recepción del equipo y generar la orden”, que corresponde al subproceso 1.4 del DFD y al acontecimiento 4 del modelo ambiental. Se describe en el formato visto en clase: información general, resumen, secuencia normal de eventos (con la acción del actor a la izquierda y la respuesta del sistema a la derecha), cursos alternos y, al final, las funciones del sistema con su categoría (evidente u oculta).</p>
+<div class="tw"><table>
+
+<tbody>
+<tr class="odd">
+<td><strong>Caso de uso</strong></td>
+<td>Registrar recepción del equipo y generar la orden</td>
+</tr>
+<tr class="even">
+<td><strong>Grado de detalle</strong></td>
+<td>Expandido</td>
+</tr>
+<tr class="odd">
+<td><strong>Actores</strong></td>
+<td>Cliente (iniciador); Sistema de servicio técnico</td>
+</tr>
+<tr class="even">
+<td><strong>Propósito</strong></td>
+<td>Registrar el ingreso de un equipo al taller y abrir su orden de servicio, de modo que el equipo quede identificado y su estado pueda seguirse hasta la entrega.</td>
+</tr>
+<tr class="odd">
+<td><strong>Tipo</strong></td>
+<td>Primario y esencial</td>
+</tr>
+<tr class="even">
+<td><strong>Referencias</strong></td>
+<td>R1.1, R1.2, R1.3, R1.4, R1.5, R1.6</td>
+</tr>
+<tr class="odd">
+<td><strong>Precondiciones</strong></td>
+<td>El personal del taller inició sesión en el sistema.</td>
+</tr>
+<tr class="even">
+<td><strong>Poscondiciones</strong></td>
+<td>Quedan registrados el cliente y el equipo con su falla. Se creó la orden de servicio con código único y estado RECIBIDO. Se emitió el comprobante de recepción. El historial del equipo registra la recepción.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+
+<tbody>
+<tr class="odd">
+<td><strong>Resumen</strong></td>
+<td>El cliente lleva su equipo al taller (o llega el equipo recogido) y el personal registra sus datos, los del equipo, la falla y la forma de ingreso. El sistema genera la orden de servicio, la deja en estado RECIBIDO y emite el comprobante de recepción.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cap">Secuencia normal de eventos</p>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th><strong>Acción del actor</strong></th>
+<th><strong>Respuesta del sistema</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. El cliente llega con el equipo (o éste llega por recojo) e indica sus datos.</td>
+<td>2. Busca al cliente por nombre o teléfono; si no existe, solicita registrarlo.</td>
+</tr>
+<tr class="even">
+<td>3. Confirma o ingresa nombre, teléfono, correo y procedencia.</td>
+<td>4. Valida y registra al cliente (R1.1) y solicita los datos del equipo.</td>
+</tr>
+<tr class="odd">
+<td>5. Indica tipo, marca, modelo, accesorios y la falla que describe.</td>
+<td>6. Valida y registra el equipo y su falla (R1.2).</td>
+</tr>
+<tr class="even">
+<td>7. Indica la forma de ingreso (en persona o por recojo).</td>
+<td>8. Registra la forma de ingreso (R1.3) y genera la orden con código único, fecha, hora y estado RECIBIDO (R1.4).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>9. Registra la recepción en el historial del equipo (R1.5).</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>10. Emite el comprobante de recepción con el código de la orden (R1.4) y lo entrega.</td>
+</tr>
+<tr class="odd">
+<td>11. Recibe el comprobante.</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="cap">Cursos alternos</p>
+<div class="tw"><table>
+
+<tbody>
+<tr class="odd">
+<td><strong>Línea 2</strong></td>
+<td>El cliente ya está registrado: el sistema muestra sus datos y el flujo continúa en la línea 5.</td>
+</tr>
+<tr class="even">
+<td><strong>Línea 4, 6</strong></td>
+<td>Faltan datos obligatorios o son inválidos (R1.6): el sistema indica el campo y pide corregirlo antes de continuar.</td>
+</tr>
+<tr class="odd">
+<td><strong>Línea 7</strong></td>
+<td>El equipo ingresa por recojo: el sistema vincula el recojo programado a la orden y marca la forma de ingreso como “por recojo”.</td>
+</tr>
+<tr class="even">
+<td><strong>Línea 8</strong></td>
+<td>Error al guardar: el sistema informa, no genera la orden y permite reintentar sin perder los datos ingresados.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="cap">Funciones del sistema</p>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th><strong>Ref.</strong></th>
+<th><strong>Función</strong></th>
+<th><strong>Categoría</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R1.1</td>
+<td>Registrar cliente (nombre, teléfono, correo, procedencia).</td>
+<td>EVIDENTE</td>
+</tr>
+<tr class="even">
+<td>R1.2</td>
+<td>Registrar equipo (tipo, marca, modelo, accesorios) y falla.</td>
+<td>EVIDENTE</td>
+</tr>
+<tr class="odd">
+<td>R1.3</td>
+<td>Registrar la forma de ingreso (en persona o por recojo).</td>
+<td>EVIDENTE</td>
+</tr>
+<tr class="even">
+<td>R1.4</td>
+<td>Generar la orden con código único y emitir el comprobante de recepción.</td>
+<td>EVIDENTE</td>
+</tr>
+<tr class="odd">
+<td>R1.5</td>
+<td>Registrar el cambio de estado en el historial.</td>
+<td>OCULTA</td>
+</tr>
+<tr class="even">
+<td>R1.6</td>
+<td>Validar que los datos obligatorios estén completos y sean correctos.</td>
+<td>OCULTA</td>
+</tr>
+</tbody>
+</table></div>
+
 </article></main>
 <footer>Proyecto de Análisis y Diseño de Sistemas, INF-241 (grupo de los martes). Universidad Mayor de San Andrés, Carrera de Informática. La Paz, Bolivia, octubre de 2026.</footer>
 </body>
