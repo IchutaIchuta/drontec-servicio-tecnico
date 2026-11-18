@@ -52,6 +52,18 @@
   }
   window.addEventListener('hashchange', function () { openFor(location.hash); });
 
+  /* Portada: el dron sigue suavemente al puntero (solo con mouse y sin "reducir movimiento"). */
+  var scn = document.getElementById('scene');
+  if (scn && window.matchMedia && !matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(hover: hover)').matches) {
+    var hero = scn.closest('.hero') || scn;
+    hero.addEventListener('mousemove', function (ev) {
+      var r = hero.getBoundingClientRect();
+      scn.style.setProperty('--px', ((ev.clientX - r.left) / r.width - 0.5).toFixed(3));
+      scn.style.setProperty('--py', ((ev.clientY - r.top) / r.height - 0.5).toFixed(3));
+    });
+    hero.addEventListener('mouseleave', function () { scn.style.setProperty('--px', 0); scn.style.setProperty('--py', 0); });
+  }
+
   /* Video: si la página trae data-youtube con un enlace, se incrusta el reproductor. */
   var box = document.querySelector('[data-youtube]');
   if (box) {
