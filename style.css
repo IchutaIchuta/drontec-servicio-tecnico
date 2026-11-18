@@ -256,46 +256,4 @@ background:linear-gradient(90deg,transparent,var(--acc2),transparent);filter:dro
 .bg-fx .r2{top:71%;transform:rotate(4deg);animation-delay:-7s;animation-duration:19s}
 @keyframes route{0%{left:-30%;opacity:0}8%{opacity:.55}92%{opacity:.55}100%{left:110%;opacity:0}}
 
-.scene{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;border:1px solid rgba(120,170,255,.32);background:#050c18;
-box-shadow:0 18px 50px rgba(8,20,45,.45),0 0 0 1px rgba(34,211,238,.06);color:#e8f1ff}
-.scene .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.06) brightness(.92);
-transform-origin:55% 45%;animation:kb 24s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
-.scene .tint{position:absolute;inset:0;background:
-radial-gradient(ellipse at 50% 48%,transparent 38%,rgba(3,9,22,.62) 100%),
-linear-gradient(180deg,rgba(14,60,130,.28),rgba(5,14,32,.5));mix-blend-mode:multiply}
-.scene .tint:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(90,169,255,.08) 1px,transparent 1px) 0 0/100% 38px}
-.scene .scan{position:absolute;left:0;right:0;height:110px;top:-110px;pointer-events:none;
-background:linear-gradient(transparent,rgba(34,211,238,.20));border-bottom:1px solid rgba(34,211,238,.7);animation:scan 5.5s linear infinite}
-@keyframes scan{to{top:100%}}
-.scene .par{position:absolute;inset:0;transform:translate(calc(var(--px,0)*10px),calc(var(--py,0)*8px));transition:transform .25s ease-out}
-.scene .target{position:absolute;left:8%;top:13%;width:86%;height:59%}
-.scene .target i{position:absolute;width:26px;height:26px;border:0 solid #22d3ee;filter:drop-shadow(0 0 5px #22d3ee);animation:lock 2.6s ease-in-out infinite}
-.scene .target .tl{left:0;top:0;border-width:3px 0 0 3px;border-top-left-radius:6px}
-.scene .target .tr{right:0;top:0;border-width:3px 3px 0 0;border-top-right-radius:6px}
-.scene .target .bl{left:0;bottom:0;border-width:0 0 3px 3px;border-bottom-left-radius:6px}
-.scene .target .br{right:0;bottom:0;border-width:0 3px 3px 0;border-bottom-right-radius:6px}
-@keyframes lock{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.82);opacity:.7}}
-.scene .tag{position:absolute;left:0;bottom:-34px;padding:5px 12px;border-radius:8px;font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.4px;text-transform:uppercase;
-color:#06101f;background:#22d3ee;box-shadow:0 0 14px rgba(34,211,238,.6)}
-.scene .rec{position:absolute;left:5%;top:6%;display:flex;align-items:center;gap:8px;font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.5px;text-transform:uppercase;
-padding:6px 12px;border-radius:8px;background:rgba(5,14,32,.7);border:1px solid rgba(120,190,255,.3)}
-.scene .rec b{width:9px;height:9px;border-radius:50%;background:#ff4d5e;box-shadow:0 0 8px #ff4d5e;animation:blink 1.2s steps(1) infinite}
-@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.15}}
-.scene .fchip{position:absolute;padding:6px 13px;border-radius:999px;font:600 12.5px system-ui,sans-serif;color:#dff0ff;
-background:rgba(10,30,60,.72);border:1px solid rgba(120,190,255,.4);backdrop-filter:blur(5px);animation:bob 5s ease-in-out infinite}
-.scene .fchip:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#22d3ee;margin-right:8px;box-shadow:0 0 8px #22d3ee}
-.scene .f1{right:5%;top:6%}.scene .f2{right:5%;bottom:7%;animation-delay:-1.7s}.scene .f3{left:5%;bottom:7%;animation-delay:-3.2s}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
-@media(max-width:1100px){.scene{max-width:620px;margin:0 auto;width:100%}}
-@media(max-width:520px){.scene .fchip{font-size:11px;padding:5px 10px}.scene .rec,.scene .tag{font-size:10.5px}.scene .tag{bottom:-30px}}
-@media (prefers-reduced-motion:reduce){
-.scene .ph,.scene .scan,.scene .target i,.scene .rec b,.scene .fchip,.bg-fx i,.bg-fx .route{animation:none!important}
-.bg-fx .route{display:none}
-}
-
-.hero-in{grid-template-columns:.92fr 1.08fr}
-.scene{aspect-ratio:3/2}
-.scene .target{left:9%;top:19%;width:83%;height:56%}
-@media(max-width:1100px){.hero-in{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.bg-fx i,.bg-fx .route{animation:none!important}.bg-fx .route{display:none}}
