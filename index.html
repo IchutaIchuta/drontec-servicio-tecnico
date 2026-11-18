@@ -10,7 +10,7 @@
 <meta property="og:image" content="img/hero-dron.jpg">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<script>(function(){var t;try{t=localStorage.getItem('drontec-theme')}catch(e){}if(!t){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})()</script>
+<script>(function(){var t;try{t=localStorage.getItem('drontec-theme')}catch(e){}if(!t){t='dark'}document.documentElement.setAttribute('data-theme',t)})()</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -63,6 +63,7 @@
 <div class="side-foot">UMSA · Carrera de Informática</div>
 </aside>
 <button class="ibtn themebtn" type="button" data-toggle-theme aria-label="Cambiar entre modo claro y oscuro"><span class="sun"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><span class="moon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg></span></button>
+<div class="bg-fx" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><i style="left:8%;top:12%;animation-delay:0s"></i><i style="left:22%;top:70%;animation-delay:1.2s"></i><i style="left:35%;top:28%;animation-delay:2.1s"></i><i style="left:52%;top:82%;animation-delay:0.6s"></i><i style="left:63%;top:18%;animation-delay:1.8s"></i><i style="left:78%;top:58%;animation-delay:2.6s"></i><i style="left:90%;top:30%;animation-delay:0.9s"></i><i style="left:14%;top:44%;animation-delay:3.1s"></i><i style="left:46%;top:50%;animation-delay:1.5s"></i><i style="left:70%;top:90%;animation-delay:2.2s"></i><i style="left:95%;top:75%;animation-delay:0.3s"></i><i style="left:30%;top:6%;animation-delay:2.8s"></i><span class="route r1"></span><span class="route r2"></span></div>
 <div class="pv-overlay" data-close-card></div>
 <div class="pv-modal" role="dialog" aria-modal="true" aria-labelledby="pvTitle">
 <div class="pv-head"><span class="ico" id="pvIco"></span><div><h2 id="pvTitle"></h2><small id="pvSub"></small></div></div>
@@ -80,7 +81,13 @@
 <p>Una plataforma para llevar el control de cada equipo que ingresa a Drontec: la cotización preliminar, el recojo, el diagnóstico, la reparación con repuestos, el cobro y la entrega, con seguimiento por código de orden.</p>
 <div class="btns"><a class="btn pri" href="parte-1.html">Explorar Documentación</a><a class="btn" href="video.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg> Ver Video</a></div>
 </div>
-<figure class="hero-ph"><img src="img/hero-dron.jpg" alt="Dron armado sobre la mesa de trabajo del taller" width="1200" height="750"><span class="chip">Equipo recibido en el taller</span></figure>
+<div class="scene photo" id="scene" role="img" aria-label="Dron DJI Mavic 2 sobre la mesa de trabajo del taller de Drontec">
+<img class="ph" src="img/hero-dron.jpg" alt="" width="1200" height="750">
+<div class="tint"></div><div class="scan"></div>
+<div class="par"><div class="target"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div></div>
+<div class="rec"><b></b>Equipo en diagnóstico</div>
+<span class="fchip f1">Diagnóstico</span><span class="fchip f2">Reparación</span><span class="fchip f3">Entrega</span>
+</div>
 </div></section>
 
 <div class="stats">
