@@ -189,3 +189,50 @@ a.card .go{display:inline-block;margin-top:12px;font-weight:700;font-size:14px;c
   .btn{flex:1 1 100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- Menú con íconos de color (como el ejemplo) ---------- */
+.ico{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;flex:none;color:#fff;
+box-shadow:0 4px 12px rgba(0,0,0,.22)}
+.ico svg.i{width:18px;height:18px}
+.c-home{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.c-marco{background:linear-gradient(135deg,#10b981,#0ea5e9)}
+.c-estr{background:linear-gradient(135deg,#6366f1,#ec4899)}
+.c-obj{background:linear-gradient(135deg,#ef4444,#f59e0b)}
+.c-video{background:linear-gradient(135deg,#8b5cf6,#6366f1)}
+.c-cont{background:linear-gradient(135deg,#ec4899,#f43f5e)}
+.menu .sub a.l2{padding-left:22px;font-size:13px;position:relative}
+.menu .sub a.l2:before{content:"";position:absolute;left:10px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--line);transform:translateY(-50%)}
+
+/* ---------- Resumen corto + botón para ver el detalle ---------- */
+p.lead{font-size:17.5px;color:var(--ink)}
+details.more{margin:14px 0 6px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);overflow:hidden}
+details.more>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 16px;
+font:600 14.5px system-ui,sans-serif;color:var(--acc);min-height:46px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary:before{content:"+";display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;
+background:var(--acc);color:var(--card);font-weight:800;line-height:1}
+details.more[open]>summary:before{content:"\2212"}
+details.more>summary .c{display:none}
+details.more[open]>summary .o{display:none}
+details.more[open]>summary .c{display:inline}
+details.more>summary:hover{background:var(--side-on)}
+details.more .more-body{padding:6px 18px 16px;background:var(--card);border-top:1px solid var(--line)}
+details.more .more-body>p:first-child{margin-top:.9em}
+article h3{scroll-margin-top:76px}
+
+/* ---------- Tarjeta al abrir un grupo del menú ---------- */
+.pv-overlay{display:none;position:fixed;inset:0;background:rgba(3,8,18,.62);backdrop-filter:blur(4px);z-index:60}
+.pv-modal{display:none;position:fixed;z-index:61;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,calc(100vw - 32px));
+background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 26px 22px;box-shadow:0 24px 70px rgba(0,0,0,.5);font-family:system-ui,sans-serif}
+body.pv-open .pv-overlay,body.pv-open .pv-modal{display:block}
+.pv-head{display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.pv-head .ico{width:56px;height:56px;border-radius:16px}
+.pv-head .ico svg.i{width:28px;height:28px}
+.pv-head h2{margin:0;font:800 26px/1.15 system-ui,sans-serif;background:linear-gradient(95deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pv-head small{display:block;margin-top:4px;color:var(--mut);font-size:14px}
+.pv-modal>p{margin:16px 0;color:var(--ink);font-size:16px;line-height:1.65;text-align:left}
+.pv-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pv-chips span{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);font-size:13px;font-weight:600;color:var(--acc)}
+.pv-btns{display:flex;gap:10px;flex-wrap:wrap}
+.pv-btns .btn{cursor:pointer;font-family:inherit}
+@media(max-width:520px){.pv-modal{padding:20px 18px}.pv-head h2{font-size:22px}.pv-btns .btn{flex:1 1 100%;justify-content:center}}
