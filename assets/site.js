@@ -21,6 +21,37 @@
     if (ev.key === 'Escape') document.body.classList.remove('menu-open');
   });
 
+  /* Tarjeta de resumen: aparece al abrir un grupo del menú (Marco Teórico, Análisis Estructurado, Orientado a Objetos). */
+  var ICONS = {};
+  function openCard(sum) {
+    var $ = function (id) { return document.getElementById(id); };
+    $('pvTitle').textContent = sum.getAttribute('data-title');
+    $('pvSub').textContent = sum.getAttribute('data-sub');
+    $('pvDesc').textContent = sum.getAttribute('data-desc');
+    $('pvGo').setAttribute('href', sum.getAttribute('data-href'));
+    var chips = $('pvChips'); chips.innerHTML = '';
+    (sum.getAttribute('data-chips') || '').split('|').forEach(function (c) {
+      if (!c) return; var s = document.createElement('span'); s.textContent = c; chips.appendChild(s);
+    });
+    var ic = $('pvIco'); ic.className = 'ico ' + sum.getAttribute('data-ico');
+    var svg = sum.querySelector('.ico svg'); ic.innerHTML = svg ? svg.outerHTML : '';
+    document.body.classList.add('pv-open');
+  }
+  document.addEventListener('click', function (ev) {
+    var sum = ev.target.closest('.menu summary[data-title]');
+    if (sum && !sum.parentNode.open) { openCard(sum); }
+    if (ev.target.closest('[data-close-card]') || ev.target.closest('#pvGo')) { document.body.classList.remove('pv-open'); }
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') document.body.classList.remove('pv-open');
+  });
+  /* Al entrar con #sección, abrir el botón de detalle si el ancla está dentro de uno. */
+  function openFor(hash) {
+    if (!hash) return; var el = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (!el) return; var d = el.closest('details.more'); if (d) d.open = true;
+  }
+  window.addEventListener('hashchange', function () { openFor(location.hash); });
+
   /* Video: si la página trae data-youtube con un enlace, se incrusta el reproductor. */
   var box = document.querySelector('[data-youtube]');
   if (box) {
